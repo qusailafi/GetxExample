@@ -25,16 +25,20 @@ class HomeControler extends BaseControler {
           }
         case ApiState.SUCESS:
           {
-            categories.addAll(List<String>.from(json.decode(response.data)));
+            if (List<String>.from(json.decode(response.data)).length > 0) {
+              categories.addAll(List<String>.from(json.decode(response.data)));
+            } else {
+              msg.value = "No Categories Avilable";
+            }
           }
 
         case ApiState.NOT_INTERNET:
           {
-            error.value = response.message;
+            msg.value = response.message;
           }
 
         case ApiState.FAILUER:
-          error.value = response.message;
+          msg.value = response.message;
       }
     } catch (e) {
     } finally {

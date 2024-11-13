@@ -30,11 +30,11 @@ class ProductsControler extends BaseControler {
         }
       case ApiState.FAILUER:
         {
-          error.value = response.message;
+          msg.value = response.message;
         }
       case ApiState.NOT_INTERNET:
         {
-          error.value = response.message;
+          msg.value = response.message;
         }
 
     }
